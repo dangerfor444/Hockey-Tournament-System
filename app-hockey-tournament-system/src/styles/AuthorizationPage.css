@@ -1,0 +1,139 @@
+
+.authorization-page {
+    display: flex;
+    height: 100vh;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.logo-container {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo-container img {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0 100px;
+}
+
+.authorization-form {
+    max-width: 360px;
+    padding-left: 63px;
+    box-sizing: border-box; 
+}
+
+.authorization-form h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.authorization-form p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 24px); 
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-self: start;
+    font-size: 14px;
+}
+
+.checkbox-group-rememberMe {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.checkbox-group-rememberMe input {
+    margin-right: 5px;
+    align-self: start;
+    margin-top: 2px;
+}
+
+.authorization-form button {
+    width: 100%; 
+    padding: 12px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.authorization-form button:hover {
+    background-color: #0056b3;
+}
+
+.authorization-form .forgot-password {
+    color: #FF8682;
+    text-decoration: none;
+}
+
+.authorization-form .forgot-password:hover {
+    color: #f5554f;
+}
+
+.register {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.register-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    color: #2855cf;
+}
+
+.img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+
+.img-box img {
+    max-width: 100%; 
+    height: auto;
+    border-radius: 8px; 
+}
+
+
+.error {
+    color: #FF8682;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
