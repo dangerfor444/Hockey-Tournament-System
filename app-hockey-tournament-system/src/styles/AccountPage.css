@@ -1,0 +1,97 @@
+.account-page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navigation li {
+    cursor: pointer;
+    color: #333;
+}
+
+.navigation .active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.content {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chart {
+    margin-top: 20px;
+}
+
+.chart-placeholder {
+    height: 200px;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.tournament-info {
+    margin-top: 20px;
+}
+
+.tournament-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tournament-info li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tournament-info li:last-child {
+    border-bottom: none;
+}

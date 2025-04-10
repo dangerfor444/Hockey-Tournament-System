@@ -25,6 +25,7 @@ const AuthorizationForm = () => {
         event.preventDefault();
         if (validateForm()) {
             console.log('Form submitted:', { email, password });
+            window.location.href = '/account';
         }
     };
 
