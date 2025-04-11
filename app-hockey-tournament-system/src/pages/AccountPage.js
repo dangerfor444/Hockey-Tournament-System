@@ -13,6 +13,7 @@ const AccountPage = () => {
                         <li>Партнеры НХЛ</li>
                         <li className="active">Личный кабинет</li>
                         <li>Админ</li>
+                        
                     </ul>
                 </nav>
             </header>
