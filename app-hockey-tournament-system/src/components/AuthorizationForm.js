@@ -21,11 +21,83 @@ const AuthorizationForm = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (event) => {
+    const fetchUserData = async (token) => {
+        try {
+            const response = await fetch('http://89.232.177.107/ApiV1/Users/Me', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            
+            if (response.ok) {
+                const userData = await response.json();
+                console.log('User data received:', userData); 
+                localStorage.setItem('userData', JSON.stringify(userData));
+                return userData;
+            } else {
+                console.error('Failed to fetch user data');
+                return null;
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            return null;
+        }
+    };
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
         if (validateForm()) {
-            console.log('Form submitted:', { email, password });
-            window.location.href = '/account';
+            try {
+                const response = await fetch('http://89.232.177.107/ApiV1/Auth/Login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                });
+
+                if (response.ok) {
+                    const token = await response.text();
+                    console.log('Login successful, received token:', token); 
+                    localStorage.setItem('token', token);
+                    
+                    const userData = await fetchUserData(token);
+                    if (userData) {
+                        window.location.href = '/account';
+                    } else {
+                        setErrors({
+                            submit: 'Ошибка при получении данных пользователя'
+                        });
+                    }
+                } else {
+                    const text = await response.text();
+                    if (text) {
+                        try {
+                            const errorData = JSON.parse(text);
+                            console.error('Login failed:', errorData);
+                            setErrors({
+                                submit: 'Неверный email или пароль'
+                            });
+                        } catch {
+                            setErrors({
+                                submit: 'Ошибка аутентификации. Неверные почта или пароль'
+                            });
+                        }
+                    } else {
+                        setErrors({
+                            submit: 'Ошибка при входе. Нет данных от сервера.'
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                setErrors({
+                    submit: 'Ошибка сервера. Пожалуйста, попробуйте позже.'
+                });
+            }
         }
     };
 
@@ -56,6 +128,7 @@ const AuthorizationForm = () => {
                     />
                     {errors.password && <span className="error">{errors.password}</span>}
                 </div>
+                {errors.submit && <div className="error">{errors.submit}</div>}
                 <div className="checkbox-group">
                     <div className="checkbox-group-rememberMe">
                         <input type="checkbox" id="rememberMe" />

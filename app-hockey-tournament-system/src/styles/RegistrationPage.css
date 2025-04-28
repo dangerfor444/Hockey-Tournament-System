@@ -9,8 +9,10 @@
 }
 
 .logo-container2 {
-    margin-bottom: 810px;
-    margin-left: 20px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
 }
 
 .logo-container2 img {
@@ -23,7 +25,9 @@
     align-items: flex-start;
     gap: 50px;
     width: 100%;
-    margin-top: 100px;
+    margin-left: 100px;
+    margin-top: 110px;
+    margin-bottom: 100px;
 }
 
 
@@ -98,48 +102,44 @@ select {
     font-size: 14px;
 }
 
+
+
 input::placeholder,
 select {
     color: #bbb;
 }
 
-.gender-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-}
-
-.gender-group label {
-    font-size: 14px;
-    color: #333;
-}
-
-.gender-group-options {
+.gender-options {
     display: flex;
     align-items: center;
-    gap: 40px; 
+    gap: 40px;
+    margin-top: 5px;
 }
 
-.gender-group-option {
+.gender-option {
     display: flex;
     align-items: center;
 }
 
-.gender-group-option input {
-    margin-right: 8px; 
+.gender-option input[type="radio"] {
+    margin-right: 8px;
     width: 20px;
-    height: 20px; 
+    height: 20px;
     cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.gender-group-option label {
-    margin-top: 7px;
+.gender-option label {
+    margin: 0;
     font-size: 14px;
     color: #333;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-button {
+.registration-form button {
     padding: 12px;
     background-color: #2e86de;
     border: none;
@@ -150,7 +150,7 @@ button {
     margin-top: 15px;
 }
 
-button:hover {
+.registration-form button:hover {
     background-color: #1e6abd;
 }
 
