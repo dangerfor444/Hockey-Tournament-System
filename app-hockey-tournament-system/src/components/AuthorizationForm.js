@@ -103,7 +103,7 @@ const AuthorizationForm = () => {
 
     return (
         <div className="authorization-form">
-            <h2>Войти</h2>
+            <h2>Вход</h2>
             <p>Войдите в ваш личный кабинет</p>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">

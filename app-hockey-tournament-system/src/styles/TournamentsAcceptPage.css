@@ -1,0 +1,147 @@
+
+.tournaments-accept-page {
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+.tournaments-accept-page h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #007bff;; 
+}
+
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.form-group label {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.form-group select {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  transition: border-color 0.2s;
+}
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;;
+}
+
+
+.participants-lists {
+  display: flex;
+  gap: 30px;
+}
+.pending-section,
+.accepted-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.pending-section h3,
+.accepted-section h3 {
+  margin: 0 0 15px;
+  font-size: 1.5rem;
+  color: #222;
+  border-bottom: 2px solid #007bff;;
+  padding-bottom: 8px;
+}
+
+
+.pending-section ul,
+.accepted-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+.pending-section li,
+.accepted-section li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pending-section li:last-child,
+.accepted-section li:last-child {
+  border-bottom: none;
+}
+
+
+.pending-section li button {
+  background: #007bff;;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.pending-section li button:hover {
+  background: #0359b4;;
+}
+.pending-section li button:active {
+  transform: scale(0.97);
+}
+
+
+.pending-section p,
+.accepted-section p {
+  margin: auto;
+  color: #555;
+  font-style: italic;
+}
+
+
+@media (max-width: 768px) {
+  .participants-lists {
+    flex-direction: column;
+  }
+  .form-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .form-group select {
+    width: 100%;
+  }
+}
+
+
+
+.accepted-section li button {
+  background: #e03d3d;;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.accepted-section li button:hover {
+  background: #aa1515;;
+}
+.accepted-section li button:active {
+  transform: scale(0.97);
+}

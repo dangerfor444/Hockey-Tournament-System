@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/AccountPage.css';
+import { FaRegPlusSquare } from "react-icons/fa";
 
 const AdminInterface = ({ token }) => {
     const [tournaments, setTournaments] = useState([]);
@@ -7,9 +9,11 @@ const AdminInterface = ({ token }) => {
         description: '',
         startTime: ''
     });
+    const [isFormOpen, setIsFormOpen] = useState(false);
 
     useEffect(() => {
         fetchTournaments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const fetchTournaments = async () => {
@@ -69,7 +73,7 @@ const AdminInterface = ({ token }) => {
                 description: '',
                 startTime: ''
             });
-            await fetchTournaments(); 
+            await fetchTournaments();
             alert('Турнир успешно создан!');
         } catch (error) {
             console.error('Error creating tournament:', error);
@@ -91,39 +95,51 @@ const AdminInterface = ({ token }) => {
         return date.toLocaleDateString('ru-RU');
     };
 
+    const toggleForm = () => {
+        setIsFormOpen(prev => !prev);
+    };
+
     return (
         <div className="profile-right">
             <div className="create-tournament">
-                <h2>Создать новый турнир</h2>
-                <form onSubmit={handleCreateTournament}>
-                    <div className="form-group">
-                        <label>Название турнира</label>
-                        <input
-                            type="text"
-                            value={newTournament.title}
-                            onChange={(e) => handleInputChange(e, 'title')}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Описание</label>
-                        <textarea
-                            value={newTournament.description}
-                            onChange={(e) => handleInputChange(e, 'description')}
-                            required
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label>Дата начала</label>
-                        <input
-                            type="datetime-local"
-                            value={newTournament.startTime}
-                            onChange={(e) => handleInputChange(e, 'startTime')}
-                            required
-                        />
-                    </div>
-                    <button type="submit">Создать турнир</button>
-                </form>
+            <h2
+                className="create-tournament-header"
+                onClick={toggleForm}
+                >
+                Создать новый турнир
+                <FaRegPlusSquare className="create-tournament-icon" />
+            </h2>
+                {isFormOpen && (
+                    <form onSubmit={handleCreateTournament}>
+                        <div className="form-group">
+                            <label>Название турнира</label>
+                            <input
+                                type="text"
+                                value={newTournament.title}
+                                onChange={(e) => handleInputChange(e, 'title')}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Описание</label>
+                            <textarea
+                                value={newTournament.description}
+                                onChange={(e) => handleInputChange(e, 'description')}
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label>Дата начала</label>
+                            <input
+                                type="datetime-local"
+                                value={newTournament.startTime}
+                                onChange={(e) => handleInputChange(e, 'startTime')}
+                                required
+                            />
+                        </div>
+                        <button type="submit">Создать турнир</button>
+                    </form>
+                )}
             </div>
             <div className="tournaments-list">
                 <h2>Список турниров</h2>

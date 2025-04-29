@@ -214,3 +214,113 @@
     border-bottom: none;
 }
 
+.create-tournament {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-tournament h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.create-tournament .form-group {
+    margin-bottom: 15px;
+}
+
+.create-tournament .form-group label {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.create-tournament .form-group input,
+.create-tournament .form-group textarea {
+    width: 80%; 
+    max-width: 400px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.create-tournament .form-group input:focus,
+.create-tournament .form-group textarea:focus {
+    border-color: #80bdff;
+    outline: none;
+}
+
+.create-tournament button {
+    padding: 10px 20px; 
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.create-tournament button:hover {
+    background-color: #0056b3;
+}
+
+.profile-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout-btn {
+
+    margin-top: -20px;
+    background-color: #e6e6e6;
+    padding: 4px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #ee7171;
+}
+
+.create-tournament-header {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.create-tournament-header .create-tournament-icon {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.create-tournament-header:hover {
+    color: #007bff;
+}
+
+
+.navigation ul li a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.navigation ul li a:hover {
+    color: #007bff;
+}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/AccountPage.css';
-import img from '../img/avtospartak-logo.png';
+
 import avatar from '../img/png-avatar.png';
 import { IoIosSettings } from "react-icons/io";
 import PlayerRanking from '../components/PlayerRanking';
 import AdminInterface from '../components/AdminInterface';
+import Navbar from '../components/navbar';
 
 const AccountPage = () => {
     const [isEditing, setIsEditing] = useState(false);
@@ -72,17 +73,7 @@ const AccountPage = () => {
 
     return (
         <div className="account-page">
-            <header className="header">
-                <img src={img} alt="Логотип" />
-                <nav className="navigation">
-                    <ul>
-                        <li>Туры</li>
-                        <li>Таблица рейтинга</li>
-                        <li>Участники турнира</li>
-                        <li className="active">Личный кабинет</li>
-                    </ul>
-                </nav>
-            </header>
+            <Navbar />
             <main className="content">
                 <h1>Личный кабинет</h1>
                 <div className="profile-container">
@@ -108,7 +99,7 @@ const AccountPage = () => {
                                     className="logout-btn"
                                     onClick={handleLogout}
                                 >
-                                    Выйти
+                                    Выйти из аккаунта
                                 </button>
                             </div>
                         </div>
