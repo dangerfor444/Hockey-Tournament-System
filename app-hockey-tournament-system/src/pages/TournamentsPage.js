@@ -72,10 +72,6 @@ const TournamentsPage = () => {
       let responseData;
       try {
         responseData = await response.json();
-        console.log(
-          `Ответ на запрос POST /Tournaments/${selectedId}/Participants:`,
-          responseData
-        );
       } catch (parseErr) {
         console.error(parseErr);
         if (parseErr.message.includes('Unexpected token')) {

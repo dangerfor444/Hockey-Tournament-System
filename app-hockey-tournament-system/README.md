@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Система управления хоккейными турнирами
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Веб-приложение для организации и управления хоккейными турнирами, отслеживания статистики матчей и игроков.
 
-## Available Scripts
+## Функциональность
 
-In the project directory, you can run:
+### Для игроков
+- **Регистрация и авторизация** — создание личного кабинета
+- **Личный кабинет** — просмотр персональной информации
+- **Запись на турниры** — подача заявок на участие в доступных турнирах
+- **Рейтинг игроков** — просмотр рейтинга игроков с возможностью фильтрации по полу и возрасту
 
-### `npm start`
+### Для администраторов
+- **Управление турнирами** — создание и редактирование турниров
+- **Подтверждение заявок** — рассмотрение заявок от игроков на участие в турнирах
+- **Редактирование счетов матчей** — фиксация результатов проведенных матчей
+- **Организация туров** — создание структуры туров внутри турниров
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Технический стек
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React, React Router
+- **Стилизация**: CSS
+- **Взаимодействие с API**: Fetch API
+- **Авторизация**: JWT токены
 
-### `npm test`
+## Установка и запуск
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Требования
+- Node.js (версия 14 или выше)
+- npm или yarn
 
-### `npm run build`
+### Установка
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Клонируйте репозиторий:
+```bash
+git clone [URL_репозитория]
+cd Hockey-Tournament-System/app-hockey-tournament-system
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Установите зависимости:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Запустите приложение в режиме разработки:
+```bash
+npm start
+```
 
-### `npm run eject`
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Сборка для продакшена
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Для создания оптимизированной сборки приложения выполните:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Структура приложения
 
-## Learn More
+### Страницы
+- **Авторизация** — вход в личный кабинет
+- **Регистрация** — создание нового аккаунта
+- **Личный кабинет** — профиль пользователя
+- **Запись на турниры** — просмотр и запись на доступные турниры
+- **Подтверждение заявок** — администраторский интерфейс для обработки заявок (только для админов)
+- **Рейтинг игроков** — таблица рейтинга игроков с фильтрами
+- **Редактирование счетов матчей** — интерфейс для внесения результатов матчей (только для админов)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### API
+Приложение взаимодействует с бэкенд-сервером через REST API. Основные эндпоинты:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `ApiV1/Auth/Login` — авторизация пользователя
+- `ApiV1/Users` — управление пользователями
+- `ApiV1/Tournaments` — работа с турнирами
+- `ApiV1/Tournaments/{id}/Tours` — управление турами в рамках турнира
+- `ApiV1/Tournaments/{id}/Tours/{tourId}/Matches` — работа с матчами в рамках тура
+- `ApiV1/Tournaments/{id}/Participants` — управление участниками турнира
 
-### Code Splitting
+## Аутентификация
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Приложение использует JWT токены для аутентификации пользователей. После успешной авторизации токен сохраняется в localStorage и используется для всех последующих запросов к API.
 
-### Analyzing the Bundle Size
+## Роли пользователей
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Игрок** (roleId: 0) — стандартная роль, позволяет участвовать в турнирах и просматривать информацию
+- **Администратор** (roleId: 1) — расширенная роль с доступом к управлению турнирами, матчами и заявками

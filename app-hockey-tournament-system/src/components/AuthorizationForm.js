@@ -31,7 +31,6 @@ const AuthorizationForm = () => {
             
             if (response.ok) {
                 const userData = await response.json();
-                console.log('User data received:', userData); 
                 localStorage.setItem('userData', JSON.stringify(userData));
                 return userData;
             } else {
@@ -61,7 +60,6 @@ const AuthorizationForm = () => {
 
                 if (response.ok) {
                     const token = await response.text();
-                    console.log('Login successful, received token:', token); 
                     localStorage.setItem('token', token);
                     
                     const userData = await fetchUserData(token);

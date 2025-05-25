@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Хоккейные турниры",
+  "name": "Система управления хоккейными турнирами",
   "icons": [
     {
       "src": "favicon.ico",

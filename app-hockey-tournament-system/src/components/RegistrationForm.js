@@ -17,7 +17,7 @@ const RegistrationForm = () => {
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
-        const { id, value, type } = e.target;
+        const { id, value, type, name } = e.target;
         
         if (id === 'phone') {
             const phoneNumber = value.replace(/\D/g, '');
@@ -28,10 +28,15 @@ const RegistrationForm = () => {
                     [id]: phoneNumber
                 });
             }
+        } else if (type === 'radio' && name === 'gender') {
+            setFormData({
+                ...formData,
+                [name]: value
+            });
         } else {
             setFormData({
                 ...formData,
-                [id]: type === 'radio' ? e.target.value : value, 
+                [id]: value
             });
         }
     };
@@ -49,6 +54,7 @@ const RegistrationForm = () => {
         if (formData.password.length < 6) newErrors.password = "Пароль должен содержать минимум 6 символов";
         if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = "Пароли не совпадают";
         if (!formData.birthDate) newErrors.birthDate = "Дата рождения обязательна";
+        if (!formData.gender) newErrors.gender = "Выберите пол";
         
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0; 
@@ -110,7 +116,7 @@ const RegistrationForm = () => {
                     middleName: formData.patronymic,
                     lastName: formData.lastName,
                     birthDate: formData.birthDate,
-                    gender: formData.gender === 'male' ? true : false,
+                    gender: formData.gender === 'male',
                     email: formData.email,
                     phone: formData.phone,
                     password: formData.password,
@@ -256,6 +262,7 @@ const RegistrationForm = () => {
                                 id="male" 
                                 name="gender" 
                                 value="male" 
+                                checked={formData.gender === 'male'}
                                 onChange={handleChange}
                             />
                             <label htmlFor="male">Мужской</label>
@@ -266,11 +273,13 @@ const RegistrationForm = () => {
                                 id="female" 
                                 name="gender" 
                                 value="female" 
+                                checked={formData.gender === 'female'}
                                 onChange={handleChange}
                             />
                             <label htmlFor="female">Женский</label>
                         </div>
                     </div>
+                    {errors.gender && <span className="error">{errors.gender}</span>}
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Пароль</label>

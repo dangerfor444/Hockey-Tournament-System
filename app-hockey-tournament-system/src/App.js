@@ -5,6 +5,9 @@ import RegistrationPage from './pages/RegistrationPage';
 import AccountPage from './pages/AccountPage';
 import TournamentsPage from './pages/TournamentsPage';
 import TournamentsAcceptPage from './pages/TournamentsAcceptPage';
+import PlayerRankingsPage from './pages/PlayerRankingsPage';
+import MatchScoresPage from './pages/MatchScoresPage';
+
 function App() {
   return (
 
@@ -16,6 +19,8 @@ function App() {
             <Route path="/account" element={<AccountPage />} />
             <Route path="/tournaments" element={<TournamentsPage />} />
             <Route path="/tournaments-accept" element={<TournamentsAcceptPage />} />
+            <Route path="/rankings" element={<PlayerRankingsPage />} />
+            <Route path="/match-scores" element={<MatchScoresPage />} />
           </Routes>
         </div>
       </Router>

@@ -3,7 +3,6 @@ import '../styles/AccountPage.css';
 
 import avatar from '../img/png-avatar.png';
 import { IoIosSettings } from "react-icons/io";
-import PlayerRanking from '../components/PlayerRanking';
 import AdminInterface from '../components/AdminInterface';
 import Navbar from '../components/navbar';
 
@@ -17,7 +16,8 @@ const AccountPage = () => {
         email: '',
         phone: '',
         sportLevel: '',
-        role: { id: null }
+        role: { id: null },
+        rating: 0
     });
 
     useEffect(() => {
@@ -85,9 +85,10 @@ const AccountPage = () => {
                                     <h2 className="user-full-name">{`${userData.lastName} ${userData.firstName} ${userData.middleName}`}</h2>
                                     <p className="user-birth-date">Дата рождения: {formatDate(userData.birthDate)}</p>
                                     <p className="user-email">Email: {userData.email || ''}</p>
+                                    <p className="user-rating">Текущий рейтинг: <strong>{userData.rating || 0}</strong></p>
                                 </div>
                             </div>
-                            <div className="profile-buttons">
+                            <div className="edit-profile-container">
                                 <button 
                                     className="edit-profile-btn"
                                     onClick={toggleEditing}
@@ -162,7 +163,7 @@ const AccountPage = () => {
                             </div>
                         )}
                     </div>
-                    {userData.role.id === 0 ? <PlayerRanking /> : 
+                    {userData.role.id !== 0 && 
                         <AdminInterface 
                             token={token} 
                         />
