@@ -34,7 +34,7 @@
 1. Клонируйте репозиторий:
 ```bash
 git clone [URL_репозитория]
-cd Hockey-Tournament-System/app-hockey-tournament-system
+cd Hockey-Tournament-System
 ```
 
 2. Установите зависимости:
